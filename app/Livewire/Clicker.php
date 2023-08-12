@@ -32,11 +32,17 @@ class Clicker extends Component
           $validated['image'] = $this->image->store('uploads');
       }
 
-        User::create($validated);
+       $user =  User::create($validated);
 
         $this->reset(['name', 'email', 'password','image']);
 
         request()->session()->flash('success', 'User Created Successfully');
+
+        $this->dispatch('user-created', $user);
+    }
+
+    public function reloadList(){
+        $this->dispatch('user-created');
     }
     public function render()
     {
@@ -44,7 +50,7 @@ class Clicker extends Component
 
         return view('livewire.clicker',
             [
-                'title' => $title
+                'title' => $title,
             ]);
     }
 }
