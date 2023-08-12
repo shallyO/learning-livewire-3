@@ -32,7 +32,14 @@
         <div wire:loading wire:target="image">
             <span class="text-green-500">Uploading...</span>
         </div>
-        <button class="block rounded px-3 py-1 border bg-gray-400 text-white">Create </button>
+
+{{--        Applies to all submissions--}}
+        <div wire:loading.delay>
+            <span class="text-green-500">Sending...</span>
+        </div>
+
+{{--    wire:loading.remove    Remove button on submit--}}
+        <button wire:loading.attr="disabled" class="block rounded px-3 py-1 border bg-gray-400 text-white">Create </button>
 
     </form>
 
