@@ -19,7 +19,7 @@ class UserList extends Component
     public function render()
     {
         $title = "Shaloms first livewire";
-        $users = User::paginate(4);
+        $users = User::paginate(5);
 
         return view('livewire.user-list',
             [

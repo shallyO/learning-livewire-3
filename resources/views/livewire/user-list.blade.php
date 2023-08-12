@@ -1,4 +1,5 @@
-<div class="w-1/2 h-screen bg-gray-300">
+<div wire:poll.visible.5s class=" h-screen bg-gray-300">
+    <h2>{{ $title }}</h2>
     <div >
         <table class="min-w-full divide-y divide-gray-200">
             <tr>

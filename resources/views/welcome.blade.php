@@ -12,10 +12,8 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="antialiased">
-    <div class="flex">
+    <div>
         @livewire('user-list')
-
-        @livewire('clicker')
 
     </div>
     </body>
