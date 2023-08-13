@@ -16,8 +16,13 @@ class UserList extends Component
         $this->render();
     }
 
+    public function placeholder(){
+        return view('placeholder');
+    }
+
     public function render()
     {
+        sleep(5);
         $title = "Shaloms first livewire";
         $users = User::paginate(5);
 
