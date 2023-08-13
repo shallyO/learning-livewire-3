@@ -13,7 +13,8 @@
     </head>
     <body class="antialiased">
     <div>
-        @livewire('user-list', ['lazy' => true])
+{{--        @livewire('user-list', ['lazy' => true])--}}
+        <livewire:user-list search="test"/>
     </div>
     </body>
 </html>
