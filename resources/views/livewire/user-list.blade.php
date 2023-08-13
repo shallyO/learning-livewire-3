@@ -1,24 +1,28 @@
-<div wire:poll.visible.20s class=" h-screen bg-gray-300">
-    <h2>{{ $title }}</h2>
-    <div >
-        <table class="min-w-full divide-y divide-gray-200">
-            <tr>
-                <th class="px-6 py-3 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                <th class="px-6 py-3 bg-gray-100 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">email</th>
-            </tr>
-            <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
-            @foreach($users as $row)
-                <tr>
+<div class="flex justify-center items-center h-screen bg-gray-100 max-h-80vh overflow-y-auto ">
+    <div class="w-2/5">
+        <!-- Search Box and Button -->
+        <div class="mb-4 flex justify-between">
+            <input wire:model.live.debounce.300ms="search" type="text"   placeholder="Search" class="w-4/5 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300">
+            <button wire:click="update" class="w-1/5 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
+                Search
+            </button>
+        </div>
 
-                    <td> {{ $row->name }}</td>
-                    <td> {{ $row->email }}</td>
-                </tr>
+        <!-- Card 1 -->
+        @foreach($users as $row)
+            <div class="bg-white p-6 rounded-lg shadow-md mb-4 flex items-center justify-between">
+                <div>
+                    <h2 class="text-lg font-semibold mb-1">{{ $row->name }}</h2>
+                    <p class="text-gray-600">{{ $row->email }}</p>
+                </div>
+                <button class="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300">
+                    View
+                </button>
+            </div>
+        @endforeach
 
-                @endforeach
-                </tr>
-            </tbody>
-        </table>
+        <!-- Add more cards as needed -->
+
         {{ $users->links() }}
     </div>
 </div>
